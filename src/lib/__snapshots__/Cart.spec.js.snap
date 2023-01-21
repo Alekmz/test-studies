@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cart test checkout() should return an object with the total price and the list of product item 1`] = `
+{
+  "items": [
+    {
+      "product": {
+        "price": 45054,
+        "title": "Nike shoes",
+      },
+      "quantity": 2,
+    },
+    {
+      "product": {
+        "price": 55060,
+        "title": "Adidas shoes",
+      },
+      "quantity": 2,
+    },
+  ],
+  "total": 200228,
+}
+`;
+
+exports[`Cart test checkout() should return an object with the total price and the list of product item when sumary() is called 1`] = `
+{
+  "items": [
+    {
+      "product": {
+        "price": 45054,
+        "title": "Nike shoes",
+      },
+      "quantity": 3,
+    },
+    {
+      "product": {
+        "price": 55060,
+        "title": "Adidas shoes",
+      },
+      "quantity": 3,
+    },
+  ],
+  "total": 300342,
+}
+`;

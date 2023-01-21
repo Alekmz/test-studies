@@ -21,4 +21,24 @@ export default class Cart {
       return acc + item.quantity * item.product.price;
     }, 0);
   }
+
+  sumary() {
+    const total = this.getTotal();
+    const items = this.items;
+
+    return {
+      total,
+      items,
+    };
+  }
+
+  checkout() {
+    const { total, items } = this.sumary();
+
+    this.items = [];
+    return {
+      total,
+      items,
+    };
+  }
 }

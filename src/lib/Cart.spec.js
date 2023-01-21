@@ -16,6 +16,7 @@ describe("Cart test", () => {
   beforeEach(() => {
     cart = new Cart();
   });
+
   describe("getTotal()", () => {
     it("should return 0 when getTotal() is executed in a newly created instance", () => {
       expect(cart.getTotal()).toEqual(0);
@@ -61,5 +62,42 @@ describe("Cart test", () => {
     });
   });
 
-  
+  describe("checkout()", () => {
+    it("should return an object with the total price and the list of product item", () => {
+      cart.add({
+        product,
+        quantity: 2,
+      });
+      cart.add({
+        product: product2,
+        quantity: 2,
+      });
+
+      expect(cart.checkout()).toMatchSnapshot();
+    });
+
+    it("should return an object with the total price and the list of product item when sumary() is called", () => {
+      cart.add({
+        product,
+        quantity: 3,
+      });
+      cart.add({
+        product: product2,
+        quantity: 3,
+      });
+
+      expect(cart.sumary()).toMatchSnapshot();
+      expect(cart.getTotal()).toBeGreaterThan(0);
+    });
+
+    it("should return getTotal equals 0 after checkout() to have been called", () => {
+      cart.add({
+        product,
+        quantity: 2,
+      });
+      cart.checkout();
+
+      expect(cart.getTotal()).toEqual(0);
+    });
+  });
 });
